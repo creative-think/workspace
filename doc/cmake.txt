@@ -1,0 +1,7 @@
+1.指定头文件目录
+    include_directories(src/include)
+2.指定原始目录，不要忘记添加第二个默认参数dir_srcs
+    aux_source_directory(src/main dir_srcs)
+3.添加要编译的可执行文件。注意通过变量work来编译
+    set(work ${dir_srcs})
+    add_executable(work ${work})

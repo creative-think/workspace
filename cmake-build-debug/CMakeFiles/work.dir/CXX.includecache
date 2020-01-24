@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/include/common.h
+iostream
+-
+string
+-
+
+../src/include/string_util.h
+common.h
+../src/include/common.h
+
+/Users/creative/Documents/code/work/src/main/main.cpp
+common.h
+/Users/creative/Documents/code/work/src/main/common.h
+string_util.h
+/Users/creative/Documents/code/work/src/main/string_util.h
+
