@@ -56,6 +56,52 @@ CMAKE_BINARY_DIR = /Users/creative/Documents/code/work/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -123,6 +169,71 @@ work/fast:
 	$(MAKE) -f CMakeFiles/work.dir/build.make CMakeFiles/work.dir/build
 .PHONY : work/fast
 
+#=============================================================================
+# Target rules for targets named cmake-build-debug
+
+# Build rule for target.
+cmake-build-debug: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cmake-build-debug
+.PHONY : cmake-build-debug
+
+# fast build rule for target.
+cmake-build-debug/fast:
+	$(MAKE) -f CMakeFiles/cmake-build-debug.dir/build.make CMakeFiles/cmake-build-debug.dir/build
+.PHONY : cmake-build-debug/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
 src/main/main.o: src/main/main.cpp.o
 
 .PHONY : src/main/main.o
@@ -177,21 +288,60 @@ src/main/string_util.cpp.s:
 	$(MAKE) -f CMakeFiles/work.dir/build.make CMakeFiles/work.dir/src/main/string_util.cpp.s
 .PHONY : src/main/string_util.cpp.s
 
+src/main/timer.o: src/main/timer.cpp.o
+
+.PHONY : src/main/timer.o
+
+# target to build an object file
+src/main/timer.cpp.o:
+	$(MAKE) -f CMakeFiles/work.dir/build.make CMakeFiles/work.dir/src/main/timer.cpp.o
+.PHONY : src/main/timer.cpp.o
+
+src/main/timer.i: src/main/timer.cpp.i
+
+.PHONY : src/main/timer.i
+
+# target to preprocess a source file
+src/main/timer.cpp.i:
+	$(MAKE) -f CMakeFiles/work.dir/build.make CMakeFiles/work.dir/src/main/timer.cpp.i
+.PHONY : src/main/timer.cpp.i
+
+src/main/timer.s: src/main/timer.cpp.s
+
+.PHONY : src/main/timer.s
+
+# target to generate assembly for a file
+src/main/timer.cpp.s:
+	$(MAKE) -f CMakeFiles/work.dir/build.make CMakeFiles/work.dir/src/main/timer.cpp.s
+.PHONY : src/main/timer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... install"
+	@echo "... list_install_components"
+	@echo "... work"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... work"
+	@echo "... cmake-build-debug"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... src/main/main.o"
 	@echo "... src/main/main.i"
 	@echo "... src/main/main.s"
 	@echo "... src/main/string_util.o"
 	@echo "... src/main/string_util.i"
 	@echo "... src/main/string_util.s"
+	@echo "... src/main/timer.o"
+	@echo "... src/main/timer.i"
+	@echo "... src/main/timer.s"
 .PHONY : help
 
 

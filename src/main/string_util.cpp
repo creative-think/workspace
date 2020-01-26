@@ -21,3 +21,13 @@ string StringUtil::rtrim(string str) {
 string StringUtil::trim(string str) {
     return ltrim(rtrim(str));
 }
+
+#ifdef EVN_DEBUG
+TEST(string_util, trim)
+{
+    string str1 = " 空格校验 ";
+    string str2 = StringUtil::trim(str1);
+    EXPECT_STREQ("空格校验", str2.c_str());
+    EXPECT_STREQ("空格校验 ", str2.c_str());
+}
+#endif

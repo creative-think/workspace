@@ -1,7 +1,7 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/creative/Documents/code/work
---------------- Options ---------------
+------------ Options -------------
   CMAKE_BUILD_TYPE: Debug
-  CMAKE_BUILD_TYPE: Hello !
+  CMAKE_BUILD_TYPE: Hello World!
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /Users/creative/Documents/code/work/cmake-build-debug
